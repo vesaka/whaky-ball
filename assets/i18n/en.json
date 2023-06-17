@@ -1,0 +1,150 @@
+{
+    "title": "The Action Blocks",
+    "ui": {
+        "score": "Score",
+        "best_score": "Best Score",
+        "level": "Level",
+        "energy": "Energy",
+        "buttons": {
+            "restart": "Restart"
+        },
+        "button": {
+            "start": "Start",
+            "pause": "Pause",
+            "level": "Next Level"
+        }
+    },
+    "menu": {
+        "play-now": "Play Now",
+        "create-game": "Create Board",
+        "search-games": "Join a game",
+        "leaderboard": "Leaderboard"
+    },
+    "home": {
+        "btn": {
+            "play-as-guest": "Play as guest",
+            "login": "Login",
+            "free-play": "Free Play",
+            "play": "Play",
+            "select": "Select Level", 
+            "settings": "Settings"
+        },
+        "no-account": "No Account?",
+        "register": "Sign Up"
+    },
+    "sign-up": {
+        "details": "Drop your details below<br>to join the leaderboard",
+        "register": "Register",
+        "login": "Login",
+        "as-guest": "Play as guest",
+        "play": "Play game",
+        "check": "Please check you email to confirm your registration",
+        "thank-you": "Thank you for registering",
+        "name": {
+            "placeholder": "Enter your username"
+        },
+        "email": {
+            "placeholder": "Your email"
+        },
+        "password": {
+            "placeholder": "Your password"
+        },
+        "password_confirmation": {
+            "placeholder": "Confirm password"
+        }
+    },
+    "login": {
+        "title": "Login to Play",
+        "play": "Play Game",
+        "with-account": "Have an Account? Click Here",
+        "register": "register",
+        "login": "login",
+        "remember-me": "remember me",
+        "as-guest": "play as guest",
+        "forgot-password": "forgot your password?",
+        "name": {
+            "placeholder": "username"
+        },
+        "password": {
+            "placeholder": "password"
+        }
+    },
+    "logout": {
+        "text": "Logout"
+    },
+    "thank-you": {
+        "title": "thank you<br>for registering",
+        "play": "play game"
+    },
+    "levels": {
+        "title": "Select Level",
+        "level": "Level",
+        "next": "Next Level",
+        "restart": "Restart Level",
+        "result": {
+            "good_job": "Good Job!",
+            "welldone": "Weldone!",
+            "excellent": "Excellent!",
+            "fantastic": "Fantastic"
+        }
+    },
+    "leaderboard": {
+        "title": "Leaderboard",
+        "empty": "No results yet",
+        "play": "play again",
+        "restart": "Restart Level",
+        "select": "Select Level",
+        "headers": {
+            "rank": "rank",
+            "username": "username",
+            "score": "score"
+        }
+    },
+    "forgot-password": {
+        "title": "Forgot password?",
+        "submit": "submit",
+        "check": "Please, check your email<br/> for a password reset link"
+    },
+    "reset-password": {
+        "title": "Reset password?",
+        "submit": "submit"
+    },
+    "404": {
+        "not-exists": "this page does not exist",
+        "back": "go back"
+    },
+    "messages": {
+        "user": {
+            "not_found": "User not found or wrong password",
+            "not_authenticated": "Not authenticated",
+            "not_authorized": "Not authorized"
+        },
+        "name": {
+            "required": "Username is required",
+            "min": "Username should be {minimum} characters at least",
+            "unique": "Username was already taken",
+            "alphanum": "Username should be alphanumeric"
+        },
+        "email": {
+            "required": "Email is required",
+            "invalid": "Email is invalid",
+            "exists": "Email was already taken",
+            "not_found": "User not found or wrong password",
+            "unique": "Email was already taken",
+            "max": "Email should be {0} characters at most"
+        },
+        "password": {
+            "required": "Password is required",
+            "minimum": "Password should be {minimum} characters at least",
+            "min": "Password should be {0} characters at least",
+            "same": "Passwords do not match",
+            "max": "Password should be {0} characters at most"
+        },
+        "password_confirmation": {
+            "not_same": "Passwords do not match"
+        },
+        "accept": {
+            "accepted": "Please accept terms and conditions"
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "camera": {
+        "fov": 45,
+        "near": 1,
+        "far": 1500,
+        "limit": 80,
+        "position": {
+            "x": 0,
+            "y": -300,
+            "z": 200
+        }
+    },
+    "renderer": {
+        "alpha": true,
+        "antialias": true,
+        "sortObjects": false,
+        "shadowMap": {
+            "enabled": true
+        }
+    }
+}
