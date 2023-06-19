@@ -24,10 +24,6 @@
         }
     },
     "world": {
-        "physics": {
-            "friction": 0.4,
-            "restitution": 0.3
-        },
         "gravity": {
             "x": 0,
             "y": 0,
@@ -69,10 +65,10 @@
             },
             "physics": {
                 
-                "mass": 10,
+                "mass": 1,
                 "material": {
-                    "friction": 0.5,
-                    "restitution": 0.6
+                    "friction": 0.1,
+                    "restitution": 0.9
                 }
             }
         },
