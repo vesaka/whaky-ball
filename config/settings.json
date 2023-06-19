@@ -1,3 +1,11 @@
 {
-    
+    "debug": true,
+    "controls": true,
+    "bot": false,
+    "fps": 32,
+    "app": {
+    },
+    "assets": {
+        "base": "/"
+    }
 }

@@ -5,9 +5,14 @@
         "far": 1500,
         "limit": 80,
         "position": {
-            "x": 0,
-            "y": -300,
-            "z": 200
+            "x": 410,
+            "y": 210,
+            "z": 40
+        },
+        "rotation": {
+            "x": -1.57,
+            "y": 0.9,
+            "z": 3.141592653589793
         }
     },
     "renderer": {
@@ -16,6 +21,70 @@
         "sortObjects": false,
         "shadowMap": {
             "enabled": true
+        }
+    },
+    "world": {
+        "physics": {
+            "friction": 0.4,
+            "restitution": 0.3
+        },
+        "gravity": {
+            "x": 0,
+            "y": 0,
+            "z": -9.8
+        },
+        "size": {
+            "x": 600,
+            "y": 100,
+            "z": 4000
+        },
+        "defaultContactMaterial": {
+            "friction": 0.4,
+            "restitution": 0.5
+        }
+    },
+    "models": {
+        "floor": {
+            "color": "coral",
+            "position": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "size": {
+                "width": 600,
+                "height": 300
+            }
+        },
+        "ball": {
+            "color": "red",
+            "position": {
+                "x": 0,
+                "y": 0,
+                "z": 50
+            },
+            "size": {
+                "radius": 10,
+                "segments": 12
+            },
+            "physics": {
+                
+                "mass": 10,
+                "material": {
+                    "friction": 0.5,
+                    "restitution": 0.6
+                }
+            }
+        },
+        "circuits": {
+            "def": {
+
+            },
+            "types": {
+                "plane": {},
+                "track": {},
+                "rollerCoaster": {}
+            }
         }
     }
 }
