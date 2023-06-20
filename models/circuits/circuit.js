@@ -4,18 +4,16 @@ import { CatmullRomCurve3, Vector3 } from 'three';
 
 class Circuit extends Model {
 
-    createRandomCircuit() {
+    createRandomCircuit(width = 480, height = 360, numPoints = 20, amplitude = 10) {
         const points = [];
-        const numPoints = 10;
-        const radius = 10;
-        const height = 10;
+        const segmentWidth = width / numPoints;
+        const centerX = width / 2;
+        const centerY = height / 2;
 
         for (let i = 0; i < numPoints; i++) {
-            points.push(new Vector3(
-                Math.sin(i * 0.2) * radius,
-                (Math.cos(i * 0.2) + 1) * height,
-                (i - numPoints * 0.5) * 0.2
-            ));
+            const x = i * segmentWidth;
+            const y = centerY + (Math.random() * amplitude * 2 - amplitude);
+            points.push({ x, y });
         }
 
         return new CatmullRomCurve3(points);
