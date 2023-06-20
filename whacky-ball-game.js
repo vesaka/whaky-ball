@@ -35,7 +35,7 @@ class WhackyBallGame extends Game3D {
             defaultMaterial,
             defaultMaterial,
             {
-                friction: 0.1,
+                friction: 0.0,
                 restitution: 0.7
             }
         )
@@ -66,6 +66,14 @@ class WhackyBallGame extends Game3D {
         const camera = this.options.camera;
         this.$set('camera', new PerspectiveCamera(camera.fov, this.width / this.height, camera.near, camera.far));
         this.$emit('camera_created');
+
+        if (this.settings.controls) {
+            useOrbitControls(this);
+            this.controls.autoRotate = false;
+            this.controls.target.applyAxisAngle(this.camera.up, Math.PI / 2);
+            this.camera.position.applyAxisAngle(this.camera.up, Math.PI / 2);
+        }
+
         this.camera.position.set(
             camera.position.x,
             camera.position.y,
@@ -92,9 +100,7 @@ class WhackyBallGame extends Game3D {
         renderer.shadowMap.enabled = true;
         renderer.setClearColor(0x111111, 1);
 
-        if (this.settings.controls) {
-            useOrbitControls(this);
-        }
+        
 
     }
 
@@ -108,7 +114,10 @@ class WhackyBallGame extends Game3D {
         const animate = (delta) => {
             renderer.render(scene, camera);
             this.$emit('scene_render', delta);
-            world.step(timeStep, clock.getDelta());
+            world.step(timeStep, delta, 10);
+            // if(settings.controls) {
+            //     this.controls.update();
+            // }
             requestAnimationFrame(animate);
         };
         
