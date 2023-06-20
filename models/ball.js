@@ -10,6 +10,8 @@ class Ball extends Model {
         this.$listen({
             scene: ['render']
         });
+
+        console.log(this.body)
     }
 
     createModel() {
@@ -29,9 +31,10 @@ class Ball extends Model {
 
     createBody() {
         const { size, physics, position } = this;
-console.log(physics);
+
         return new Body({
             mass: physics.mass,
+            type: Body.DYNAMIC,
             shape: new Sphere(size.radius),
             position: new Vec3(position.x * 0.5, position.y * 0.5, position.z * 0.5),
             // material: new Material(physics.material),
@@ -39,7 +42,6 @@ console.log(physics);
     }
 
     scene_render(delta) {
-       //  console.log(this.body.position);
         this.update();
     }
 }
