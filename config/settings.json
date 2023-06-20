@@ -2,7 +2,7 @@
     "debug": true,
     "controls": true,
     "bot": false,
-    "fps": 32,
+    "fps": 60,
     "app": {
     },
     "assets": {

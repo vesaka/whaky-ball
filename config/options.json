@@ -57,10 +57,10 @@
             "position": {
                 "x": 0,
                 "y": 0,
-                "z": 50
+                "z": 250
             },
             "size": {
-                "radius": 10,
+                "radius": 20,
                 "segments": 12
             },
             "physics": {
