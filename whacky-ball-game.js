@@ -8,6 +8,7 @@ import { GSSolver, SAPBroadphase, World, Material, ContactMaterial } from 'canno
 import Ball from '$wb/models/ball';
 import Floor from '$wb/models/floor';
 import Circuit from '$wb/models/circuits/circuit';
+import Level from '$wb/system/level';
 import GUI from 'lil-gui';
 import { useOrbitControls } from '$core/3d/mixins/orbit-controls-mixin.js';
 import { raw } from '$core/utils/object';
@@ -18,7 +19,8 @@ class WhackyBallGame extends Game3D {
         super(options);
 
         this.$listen({
-            scene: ['created'] 
+            scene: ['created'],
+            level: ['ready'] 
         });
 
         this.$set('clock', new Clock);
@@ -26,6 +28,8 @@ class WhackyBallGame extends Game3D {
         this.createWorld();
         this.createModels();
         this.createHelers();
+
+        this.$set('level', new Level);
     }
 
     createWorld() {
@@ -58,7 +62,6 @@ class WhackyBallGame extends Game3D {
 
     createHelers() {
         const axesHelper = new AxesHelper(100);
-        const gridHelper = new GridHelper(1000, 10);
         this.scene.add(axesHelper);
     }
 
@@ -104,13 +107,18 @@ class WhackyBallGame extends Game3D {
 
     }
 
+    level_ready(circiut) {
+        this.add(circiut);
+    }
+
     build() {
         const {
-            scene, camera, renderer, world, clock, settings
+            scene, camera, renderer, world, clock, settings, level
         } = this;
         
         const timeStep = 1 / settings.fps;
 
+        this.level.load();
         const animate = (delta) => {
             renderer.render(scene, camera);
             this.$emit('scene_render', delta);
