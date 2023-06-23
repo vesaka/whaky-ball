@@ -37,25 +37,84 @@ export const generateClosedCurvePoints = () => {
             slot.available = false;
             return;
         }
-
     });
 
-    const clockwise = rand(0, 1) === 1;
     const firstSlot = matrix.getRandomAvailableSlot();
     let opened = true;
     let currentSlot = firstSlot;
 
-    setTimeout(() => {
-        opened = false;
-    }, 3000);
+    const maxIterations = matrix.columns * 2 + (matrix.rows - 1) * 2;
+    console.log(matrix.rows, matrix.rows, 'maxIterations', maxIterations);
+    let iterations = 0;
 
-    // while(opened) {
-    //     points.push({ x: rand(currentSlot.ax, currentSlot.bx), y: rand(currentSlot.ay, currentSlot.cy) });
-    //     currentSlot.available = false;
+    while(opened) {
+        //check id current slot is at corner. Use depth as offset
+        const { x, y } = currentSlot;
+        const onLeftEdge = x - depth < 0;
+        const onRightEdge = x + depth > matrix.columns;
+        const onTopEdge = y - depth < 0;
+        const onBottomEdge = y + depth > matrix.rows;
+
+        let slots = [];
+        if (onTopEdge) {
+            const nextY = y + 1;
+            slots = slots.concat(matrix.getSlots(
+                [x - 1, nextY],
+                [x, nextY],
+                [x + 1, nextY],
+            ));
+        }
+
+        if (onRightEdge) {
+            const nextX = x + 1;
+            slots = slots.concat(matrix.getSlots(
+                [nextX, y - 1],
+                [nextX, y],
+                [nextX + 1, y + 1],
+            ));
+        }
+
+        if (onBottomEdge) {
+            const nextY = y - 1;
+            slots = slots.concat(matrix.getSlots(
+                [x - 1, nextY],
+                [x, nextY],
+                [x + 1, nextY],
+            ));
+        }
+
+        if(onLeftEdge) {
+            const nextX = x - 1;
+            slots = slots.concat(matrix.getSlots(
+                [nextX, y - 1],
+                [nextX, y],
+                [nextX, y + 1],
+            ));
+        }
+
+        if(slots.length === 0) {
+            console.log({currentSlot, onTopEdge, onRightEdge, onBottomEdge, onLeftEdge});
+        }
+
         
-    // }
 
-    console.log(firstSlot);
+        points.push({ x: rand(currentSlot.ax, currentSlot.bx), y: rand(currentSlot.ay, currentSlot.cy) });
+        currentSlot = matrix.getRandomAvailableSlot(slots);
+       // console.log(slots.length);
+        slots.forEach(slot => {
+            if (matrix.isSameSlot(slot, firstSlot)) {
+                opened = false;
+            }
+        });
+        
+        iterations++;
+        if (iterations > maxIterations) {
+            break;
+        }
+        
+    }
+
+    console.log(points);
 
     return points;
 }
