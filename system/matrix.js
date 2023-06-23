@@ -43,10 +43,7 @@ class Matrix {
                     width: cellWidth,
                     height: cellHeight,
                     available: true,
-                    locked: false
                 };
-                
-                const { ax, ay } = this.slots[x][y];
             }
         }
     }
@@ -74,14 +71,6 @@ class Matrix {
         }
 
         return null;
-    }
-
-    countAvailableSlots() {
-        let freeSlots = 0;
-        this.eachSlot(({available, locked}) => {
-            freeSlots += Number(true === available && false === locked);
-        });
-        return freeSlots;
     }
 
     getRandomAvailableSlot() {
@@ -119,6 +108,20 @@ class Matrix {
 
     isSameSlot(slotA, slotB) {
         return slotA.x === slotB.x && slotA.y === slotB.y;
+    }
+
+
+    getSlots(...points) {
+        const {slots} = this;
+        const result = [];
+        for (let i = 0; i < points.length; i++) {
+            const [x, y] = points[i];
+            if (slots[x] && slots[x][y] && slots[x][y].available) {
+                result.push(slots[x][y]);
+            }
+        }
+        return result;
+
     }
 
 }
